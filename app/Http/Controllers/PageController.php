@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Reporte;
 
 
@@ -82,7 +83,7 @@ class PageController extends Controller
 
         $data = [];
 
-        foreach($reportes as $reporte){
+        foreach ($reportes as $reporte) {
             $data['label'][] = $reporte->nom_empleado;
             $data['data'][] = $reporte->rendimiento;
         }
