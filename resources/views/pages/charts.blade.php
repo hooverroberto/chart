@@ -5,34 +5,55 @@
         <div class="col-12">
             <div class="card card-chart">
                 <div class="card-header ">
+                    @if (session('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <div class="row">
                         <div class="col-sm-6 text-left">
                             <h5 class="card-category">Reporte del día 13.03.2023</h5>
                             <h2 class="card-title">Rendimiento de los empleados</h2>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
-                                <label class="btn btn-sm btn-primary btn-simple active" id="0">
-                                    <input type="radio" name="options" checked>
-                                    <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Accounts</span>
-                                    <span class="d-block d-sm-none">
-                                        <i class="tim-icons icon-single-02"></i>
-                                    </span>
-                                </label>
-                                <label class="btn btn-sm btn-primary btn-simple" id="1">
-                                    <input type="radio" class="d-none d-sm-none" name="options">
-                                    <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Purchases</span>
-                                    <span class="d-block d-sm-none">
-                                        <i class="tim-icons icon-gift-2"></i>
-                                    </span>
-                                </label>
-                                <label class="btn btn-sm btn-primary btn-simple" id="2">
-                                    <input type="radio" class="d-none" name="options">
-                                    <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Sessions</span>
-                                    <span class="d-block d-sm-none">
-                                        <i class="tim-icons icon-tap-02"></i>
-                                    </span>
-                                </label>
+                        <div class="col-sm-6 d-flex justify-content-end">
+                            <!-- Button modal -->
+                            <div>
+                                <button type="button" class="btn btn-primary d-flex align-items-start gap-1"
+                                    data-bs-toggle="modal" data-bs-target="#form-add">
+                                    </span><i class="tim-icons icon-simple-add"></i><span>Agregar empleado
+                                </button>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="form-add" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content" style="background-color: #27293d">
+                                        <div class="modal-header">
+                                            <button type="button" class="btn-close p-2" data-bs-dismiss="modal"
+                                                aria-label="Close" style="background-color: white"></button>
+                                        </div>
+                                        <div class="modal-body pt-0 mt-5">
+                                            <form method="POST" action="{{ route('add_value') }}">
+                                                @csrf
+                                                <div class="form-group">
+                                                    <label for="name" class="form-label fs-6 fw-semibold">Nombre del
+                                                        empleado:</label>
+                                                    <input type="text" class="form-control fs-6" id="name"
+                                                        name="name" placeholder="Ingresa un nombre" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="performance" class="form-label fs-6 fw-semibold">Rendimiento
+                                                        del empleado:</label>
+                                                    <input type="number" class="form-control fs-6" id="performance"
+                                                        name="performance" placeholder="Ingresa el rendimiento" required>
+                                                </div>
+
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -60,7 +81,7 @@
                 data: {
                     labels: cData.label,
                     datasets: [{
-                        label: 'Rendimineto de los empleados',
+                        label: 'Rendimiento',
                         data: cData.data,
                         backgroundColor: [
                             '#e1bee7',

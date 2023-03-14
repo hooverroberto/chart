@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('typography', ['as' => 'pages.typography', 'uses' => 'App\Http\Controllers\PageController@typography']);
 		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'App\Http\Controllers\PageController@upgrade']);
 		Route::get('charts', ['as' => 'pages.charts', 'uses' => 'App\Http\Controllers\PageController@charts']);
+		Route::post('add', 'App\Http\Controllers\PageController@add')->name('add_value');
 });
 
 Route::group(['middleware' => 'auth'], function () {
