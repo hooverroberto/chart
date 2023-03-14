@@ -60,7 +60,7 @@
                 </div>
                 <div class="card-body">
                     <div>
-                        <canvas id="charts-reportes" style="display: block; width: 100%; max-height:550px;"></canvas>
+                        <canvas id="charts-reportes" style="display: block; width: 100%; max-height:600px;"></canvas>
                     </div>
                 </div>
             </div>
