@@ -49,7 +49,7 @@
                                                         name="performance" placeholder="Ingresa el rendimiento" required>
                                                 </div>
 
-                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                <button type="submit" class="btn btn-primary">Agregar</button>
                                             </form>
                                         </div>
                                     </div>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="card-body">
                     <div>
-                        <canvas id="charts-reportes" style="display: block; width: 100%; height:600px;"></canvas>
+                        <canvas id="charts-reportes" style="display: block; width: 100%; max-height:550px;"></canvas>
                     </div>
                 </div>
             </div>

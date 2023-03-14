@@ -39,7 +39,6 @@
                     @yield('content')
                 </div>
 
-                @include('layouts.footer')
             </div>
         </div>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -52,9 +51,8 @@
                 <div class="content">
                     <div class="container">
                         @yield('content')
-                    </div>
+                    </div> 
                 </div>
-                @include('layouts.footer')
             </div>
         </div>
     @endauth
