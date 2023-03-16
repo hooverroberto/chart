@@ -2,23 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Empleado;
+use App\Models\EmpleadoRendimiento;
+use App\Models\Fecha;
 use App\Models\Reporte;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
     public function charts()
     {
-        $reportes = Reporte::all();
+        // $reportes = Reporte::all();
 
-        $data = [];
 
-        foreach ($reportes as $reporte) {
-            $data['label'][] = $reporte->nom_empleado;
-            $data['data'][] = $reporte->rendimiento;
-        }
-        $data['data'] = json_encode($data);
-        return view('pages.charts', $data);
+        return view('pages.charts');
+        // return $empleadosFiltrado;
     }
 
     public function add(Request $data)
