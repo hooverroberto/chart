@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PageController;
+use App\Http\Livewire\ChartIndex;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -34,7 +36,9 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('typography', ['as' => 'pages.typography', 'uses' => 'App\Http\Controllers\PageController@typography']);
 		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'App\Http\Controllers\PageController@upgrade']);
 		Route::get('charts', ['as' => 'pages.charts', 'uses' => 'App\Http\Controllers\PageController@charts']);
-		Route::post('add', 'App\Http\Controllers\PageController@add')->name('add_value');
+		Route::post('add', 'App\Http\Controllers\PageController@addEmployee')->name('add_value');
+		Route::delete('delete', 'App\Http\Controllers\PageController@deleteEmployee')->name('delete_employee');
+		Route::post('addChart', 'App\Http\Controllers\PageController@addChart')->name('add_chart');
 });
 
 Route::group(['middleware' => 'auth'], function () {
